@@ -42,13 +42,18 @@ a.	conda create --name KNIME python=3.9
 |Name|Type|Value|Description|
 |----|----|----|----|
 |MCC_Threshold|Float|[0, 1]|Models with training MCC values greater than the threshold MCC value are selected to be assessed in test files|
-|ClassName|String||Name of the feature to be used as target feature.|
+|TargetFeature|String||Name of the feature to be used as target feature.|
 |PathTrainingFolder|String||Path to the directory containing the training CSV file.|
 |PathTestFolder|String||Path to the directory containing the test (external) CSV files.|
 |Subset|String||List separated by comma with the name of the features to be used as best subset. If this list is not specified, the CFS selector is applied on the training CSV file.|
+|Processors|Integer||Number of processor to be used in the workflow execution.|
+|Feature_Entropy|Float|[0, 1]|Threshold to remove irrelevant features using an unsupervised Shannon Entropy (SE)-based filter. That threshold (%) is used to compute the cutoff value regarding the maximun entropy|
+|Feature_Correlation|Float|[0, 1]|Threshold to remove redundant features using Pearson correlation.|
+|Model_Correlation|Float|[0, 1]|Threshold to remove redundant models using Pearson correlation.|
+|Perplexity|Integer||Value to be used to build the t-SNE graphics. Defaul value is 0, meaning that the perplexity value is equal to square root of the number of features.|
 
 ## Run workflow from command line:
-For FQA questions: https://www.knime.com/faq
+For frequently asked questions (FQA): https://www.knime.com/faq
 ```
-knime.exe -consoleLog -nosplash -nosave -reset -application org.knime.product.KNIME_BATCH_APPLICATION -workflowDir="workspace/Knime_project" -workflow.variable=PathTrainingFolder,path/to/directory/csv/training/file,String -workflow.variable=PathTestFolder,path/to/directory/csv/test/files,String -workflow.variable=MCC_Threshold,value,double -workflow.variable=ClassName,Target_Feature_Name,String
+knime.exe -consoleLog -nosplash -nosave -reset -application org.knime.product.KNIME_BATCH_APPLICATION -workflowDir="workspace/Knime_project" -workflow.variable=PathTrainingFolder,path/to/csv/training/file,String -workflow.variable=PathTestFolder,path/to/csv/test/files,String -workflow.variable=MCC_Threshold,value,double -workflow.variable=TargetFeature,Feature_Name,String -workflow.variable=Processors,Number_Processors,int -workflow.variable=Feature_Correlation,Threshold_Value,double -workflow.variable=Feature_Entropy,Threshold_Value,double -workflow.variable=Model_Correlation,Threshold_Value,double
 ```
