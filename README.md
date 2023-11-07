@@ -30,6 +30,7 @@ a.	conda create --name KNIME python=3.9
 	- Weka 3.7
 	- KNIME python integration
 	- KNIME Parallel Chunk Loop Nodes
+	- KNIME Statistics Nodes (Labs)
 8.	Open the workflow with the KNIME platform.
 9.	Configure in the KNIME platform the conda environment to be used to execute the workflow: Menu – Preferences – KNIME – Python
 ![KNIME preferences](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/19722447/a327aa38-2350-4b7d-824d-36247164e15c)
