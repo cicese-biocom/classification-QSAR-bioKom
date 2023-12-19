@@ -14,8 +14,12 @@ a.	conda create --name KNIME python=3.9
 6.	Install the following packages in the environment created:
 	- pip install numpy
 	- pip install pillow
+	- pip install -U kaleido
+	- pip install plotly
+	- pip install shap	
 	- pip install python-javabridge
 	- pip install python-weka-wrapper3
+	- conda update pillow
 	- conda install -c anaconda joblib
 	- conda install -c anaconda scipy
 	- conda install -c anaconda pandas
@@ -31,6 +35,7 @@ a.	conda create --name KNIME python=3.9
 	- KNIME python integration
 	- KNIME Parallel Chunk Loop Nodes
 	- KNIME Statistics Nodes (Labs)
+	- KNIME Machine Learning Interpretability Extension
 8.	Open the workflow with the KNIME platform.
 9.	Configure in the KNIME platform the conda environment to be used to execute the workflow: Menu – Preferences – KNIME – Python
 ![KNIME preferences](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/19722447/a327aa38-2350-4b7d-824d-36247164e15c)
