@@ -12,22 +12,21 @@
 5.	Create a conda environment named KNIME using python 3.9.
 a.	conda create --name KNIME python=3.9
 6.	Install the following packages in the environment created:
-	- pip install numpy
-	- pip install pillow
-	- pip install -U kaleido
-	- pip install plotly
-	- pip install shap	
+	- pip install numpy==1.26.2
+	- pip install pillow==10.0.1
+	- pip install -U kaleido==0.2.1
+	- pip install plotly==5.18.0
+	- pip install shap==0.44.0
 	- pip install python-javabridge
 	- pip install python-weka-wrapper3
-	- conda update pillow
-	- conda install -c anaconda joblib
-	- conda install -c anaconda scipy
-	- conda install -c anaconda pandas
-	- conda install -c anaconda scikit-learn
-	- conda install -c anaconda git
-	- conda install -c conda-forge matplotlib
-	- conda install -c conda-forge pyarrow
-	- conda install -c conda-forge py4j
+	- conda install -c anaconda joblib=1.2.0
+	- conda install -c anaconda scipy=1.11.3
+	- conda install -c anaconda pandas=2.1.1
+	- conda install -c anaconda scikit-learn=1.3.0
+	- conda install -c anaconda git=2.40.1
+	- conda install -c conda-forge matplotlib=3.8.0
+	- conda install -c conda-forge pyarrow=11.0.0
+	- conda install -c conda-forge py4j=0.10.9.7
 	- pip install git+https://github.com/jundongl/scikit-feature.git
 6.	Download and install the KNIME platform from https://www.knime.com/
 7.	Open the KNIME platform and install the following extensions:
