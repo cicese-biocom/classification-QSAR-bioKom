@@ -13,16 +13,16 @@ Clone the repository using Git:
 ```
 git clone https://github.com/cicese-biocom/classification-QSAR-bioKom.git
 ```
-The directory structure of the framework is as follows:
+The directory structure of the workflow is as follows:
 ```
 classification-QSAR-bioKom
 ├── classification-QSAR-bioKom.knwf     <- KNIME workflow.
 ├── environment.yml                     <- Python libraries requiered by the workflow.
-├── Dockerfile							<- Docker image with all the dependencies requiered by the workflow.
-├── docker-compose.yml					<- Configuration of the Docker container requiered by the workflow.          
-├── extension_settings.epf				<- Configuration of the extensions required by the workflow.
-├── run_workflow.sh                     <- Example to execute the workflow.
-├── README.md							<- README to use the workflow.
+├── Dockerfile                          <- Docker image with all the dependencies requiered by the workflow. 
+├── docker-compose.yml                  <- Configuration of the Docker container requiered by the workflow. 
+├── knime_preferences.epf               <- Configuration of the extensions required by the workflow. 
+├── run_workflow.sh                     <- Example to execute the workflow. 
+├── README.md                           <- README to use the workflow. 
 ```
 
 ### **Dependencies**
