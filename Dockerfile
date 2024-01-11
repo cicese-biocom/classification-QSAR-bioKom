@@ -65,9 +65,8 @@ RUN knime -application org.eclipse.equinox.p2.director \
 	 -r https://update.knime.com/analytics-platform/5.2/ \
 	 -i org.knime.features.ext.weka_3.7.feature.group,org.knime.features.virtual.feature.group,org.knime.features.stats.feature.group,org.knime.features.stats2.feature.group,org.knime.features.python2.feature.group,org.knime.features.mli.feature.group
 	 
-COPY preference_knime.epf .	 	 
-# COPY knime-workspace .
-COPY run_workflow.sh .
+COPY knime_preferences.epf .
 COPY classification-QSAR-bioKom.knwf .
+COPY run_workflow.sh .
 
 CMD ["/bin/bash"]
