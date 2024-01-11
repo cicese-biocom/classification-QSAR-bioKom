@@ -1,47 +1,80 @@
+[![made-with-knime](https://img.shields.io/badge/Made%20with-Knime-ffd700.svg)](https://www.knime.com/)
+[![Made with Python](https://img.shields.io/badge/Python-=3.9-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")
+[![Conda](https://img.shields.io/badge/-conda-44A833?logo=anaconda&logoColor=FFFFFF&color=44A833)](https://docs.conda.io/en/latest/)
+[![Java Version](https://img.shields.io/badge/Java->=1.8_u351-orange)](https://www.oracle.com/java/technologies/javase/8u351-relnotes.html)
+[![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://www.docker.com/)
+
 # KNIME workflow to build classification models for QSAR studies
 
-![Figure 1](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/19722447/5c510e77-221b-4a4e-9e02-4a62a9f968f0)
+![classification-QSAR-bioKom_workflow](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/136017848/a90dcaff-d1ee-4d66-88db-be5742c5fce6)
 
-## Installation guidlines:
+## **Workflow installation**
+Clone the repository using Git:
+```
+git clone https://github.com/cicese-biocom/classification-QSAR-bioKom.git
+```
+The directory structure of the framework is as follows:
+```
+classification-QSAR-bioKom
+├── classification-QSAR-bioKom.knwf     <- KNIME workflow.
+├── environment.yml                     <- Python libraries requiered by the workflow.
+├── Dockerfile							<- Docker image with all the dependencies requiered by the workflow.
+├── docker-compose.yml					<- Configuration of the Docker container requiered by the workflow.          
+├── extension_settings.epf				<- Configuration of the extensions required by the workflow.
+├── run_workflow.sh                     <- Example to execute the workflow.
+├── README.md							<- README to use the workflow.
+```
 
-1.	Install Java 1.8 u351 (or later). 
-2.	Install C++ compiler:
-	- Windows: Install Microsoft C++ Build Tools 14.34 (or later). See https://stackoverflow.com/questions/64261546/how-to-solve-error-microsoft-visual-c-14-0-or-greater-is-required-when-inst
-	- Linux: https://gcc.gnu.org/
-4.	Install the Anaconda program to manage Python environments.
-5.	Create a conda environment named KNIME using python 3.9.
-a.	conda create --name KNIME python=3.9
-6.	Install the following packages in the environment created:
-	- pip install numpy==1.26.2
-	- pip install pillow==10.0.1
-	- pip install -U kaleido==0.2.1
-	- pip install plotly==5.18.0
-	- pip install shap==0.44.0
-	- pip install python-javabridge
-	- pip install python-weka-wrapper3
-	- conda install -c anaconda joblib=1.2.0
-	- conda install -c anaconda scipy=1.11.3
-	- conda install -c anaconda pandas=2.1.1
-	- conda install -c anaconda scikit-learn=1.3.0
-	- conda install -c anaconda git=2.40.1
-	- conda install -c conda-forge matplotlib=3.8.0
-	- conda install -c conda-forge pyarrow=11.0.0
-	- conda install -c conda-forge py4j=0.10.9.7
-	- pip install git+https://github.com/jundongl/scikit-feature.git
-6.	Download and install the KNIME platform from https://www.knime.com/
-7.	Open the KNIME platform and install the following extensions:
-	- Weka 3.7
-	- KNIME python integration
-	- KNIME Parallel Chunk Loop Nodes
-	- KNIME Statistics Nodes (Labs)
-	- KNIME Machine Learning Interpretability Extension
-8.	Open the workflow with the KNIME platform.
-9.	Configure in the KNIME platform the conda environment to be used to execute the workflow: Menu – Preferences – KNIME – Python
-![KNIME preferences](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/19722447/a327aa38-2350-4b7d-824d-36247164e15c)
+### **Dependencies**
+The major dependencies used in the workflow are as follows:
 
+> - Java 1.8 u351 (or later). </br>
+> - C++ Compiler: </br>
+	Microsoft C++ Build Tools 14.34 (or later) for Windows, see details [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/).</br>
+	GNU GCC compiler for Linux, see details [here](https://gcc.gnu.org/).	
+> - [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) to manage Python environments.
+> - [KNIME Analytics Platform](https://www.knime.com/) with the following extensions: </br>
+	Weka 3.7</br>
+	KNIME Python Integration</br>
+	KNIME Parallel Chunk Loop Nodes</br>
+	KNIME Statistics Nodes (Labs)</br>
+	KNIME Machine Learning Interpretability Extension</br>
 
+The Python libraries used in the workflow are specified in `environment.yml`.
 
-## Workflow parameters:
+### **KNIME Python Integration extension configuration**
+
+#### **Python environment configuration via conda**
+The KNIME Python Integration requires a configured Python environment. We provide the steps to create a Python environment from an `environment.yml` file using conda:
+```
+1. conda env create -f environment.yml
+2. conda activate KNIME
+3. conda env list
+```
+
+#### **Extension configuration using KNIME GUI**
+In the KNIME Analytics Platform Preferences, configure the Python environment under KNIME > Python as shown in the figure below. 
+See [KNIME Python Integration Guide](https://docs.knime.com/latest/python_installation_guide/#_introduction) for more details.
+
+![python_integration](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/136017848/c442850c-4599-4d0b-8306-989a4963c631)
+
+### **Managing workflow using Docker container**
+We provide the `Dockerfile` and `docker-compose.yml` files with all the dependencies and configurations required by the workflow.
+#### Prerequisites:
+1. Install Docker following the [Installation Guide](https://docs.docker.com/engine/installation/) for your platform.
+2. Configure in the `docker-compose.yml` file the volumes for input and output files.
+
+#### Build the Docker image locally from the next command line:
+```
+docker-compose build
+```
+
+## **Usage**
+### **Input data format**
+The input data are comma separated values (CSV) files containing the features (columns) corresponding to every instance (rows). One of the input CSV files correspond to the training dataset, whereas one or more CSV files could be given
+as test datasets. For running the workflow, it should be specified the path where the training CSV file and test CSV file(s) are saved. See [here](https://drive.google.com/file/d/1lBCmGVzCgowK5Jm42zz1hiPqMOpN8HMG/view?usp=sharing) for example of input CSV files.
+
+### Workflow parameters:
 
 |Name|Type|Value|Description|
 |----|----|----|----|
@@ -56,8 +89,16 @@ a.	conda create --name KNIME python=3.9
 |Subset|String||List separated by comma with the name of the features to be used as best subset. If this list is not specified, the CFS selector is applied on the training CSV file.|
 |Processors|Integer||Number of processor to be used in the workflow execution.|
 
-## Run workflow from command line:
+### Run workflow from command line (Windows):
+```
+knime.exe -consoleLog -nosplash -nosave -reset -application org.knime.product.KNIME_BATCH_APPLICATION -workflowFile="path/to/classification-QSAR-bioKom.knwf" -workflow.variable=PathTrainingFolder,path/to/csv/training/file,String -workflow.variable=PathTestFolder,path/to/csv/test/files,String -workflow.variable=MCC_Threshold,value,double -workflow.variable=TargetFeature,Feature_Name,String -workflow.variable=Feature_Entropy,Threshold_Value,double -workflow.variable=Feature_Correlation,Threshold_Value,double -workflow.variable=Model_Correlation,Threshold_Value,double -workflow.variable=Processors,Number_Processors,int 
+```
+For other platforms see [here](https://www.knime.com/faq#q12).
+
+### **Run workflow on the Docker container**
+```
+docker-compose run --rm sh run_workflow.sh
+```
+
 For frequently asked questions (FQA): https://www.knime.com/faq
-```
-knime.exe -consoleLog -nosplash -nosave -reset -application org.knime.product.KNIME_BATCH_APPLICATION -workflowDir="workspace/Knime_project" -workflow.variable=PathTrainingFolder,path/to/csv/training/file,String -workflow.variable=PathTestFolder,path/to/csv/test/files,String -workflow.variable=MCC_Threshold,value,double -workflow.variable=TargetFeature,Feature_Name,String -workflow.variable=Feature_Entropy,Threshold_Value,double -workflow.variable=Feature_Correlation,Threshold_Value,double -workflow.variable=Model_Correlation,Threshold_Value,double -workflow.variable=Processors,Number_Processors,int 
-```
+
