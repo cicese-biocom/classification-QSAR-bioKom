@@ -64,7 +64,10 @@ RUN knime -application org.eclipse.equinox.p2.director \
 	 -nosplash \
 	 -r https://update.knime.com/analytics-platform/5.2/ \
 	 -i org.knime.features.ext.weka_3.7.feature.group,org.knime.features.virtual.feature.group,org.knime.features.stats.feature.group,org.knime.features.stats2.feature.group,org.knime.features.python2.feature.group,org.knime.features.mli.feature.group
-	 
+
+RUN grep -qxF '-Dknime.python.connecttimeout=1728000000' /opt/knime_5.2.0/knime.ini || echo '-Dknime.python.connecttimeout=1728000000' >> /opt/knime_5.2.0/knime.ini
+RUN grep -qxF '-Xmx180g' /opt/knime_5.2.0/knime.ini || echo '-Xmx180g' >> /opt/knime_5.2.0/knime.ini
+
 COPY knime_preferences.epf .
 COPY classification-QSAR-bioKom.knwf .
 COPY run_workflow.sh .
