@@ -55,6 +55,9 @@ The KNIME Python Integration requires a configured Python environment. We provid
 #### **Extension configuration using KNIME GUI**
 In the KNIME Analytics Platform Preferences, configure the Python environment under KNIME > Python as shown in the figure below. 
 See [KNIME Python Integration Guide](https://docs.knime.com/latest/python_installation_guide/#_introduction) for more details.
+When not using the KNIME GUI the `knime_preferences.epf` file should be specified in the command line for binding KNIME 
+and the conda environment when using the workflow in batch mode.
+
 
 ![python_integration](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/136017848/c442850c-4599-4d0b-8306-989a4963c631)
 
