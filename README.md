@@ -100,7 +100,7 @@ For other platforms see [here](https://www.knime.com/faq#q12).
 
 ### **Run workflow on the Docker container**
 ```
-docker-compose run --rm sh run_workflow.sh
+docker-compose run --rm knime sh run_workflow.sh
 ```
 
 For frequently asked questions (FQA): https://www.knime.com/faq
