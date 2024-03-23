@@ -23,6 +23,7 @@ RUN apt-get update && \
     curl \
     build-essential \
     wget \
+    dos2unix \
     libopenblas-dev \
     git \
     gcc \
@@ -71,5 +72,6 @@ RUN grep -qxF '-Xmx180g' /opt/knime_5.2.0/knime.ini || echo '-Xmx180g' >> /opt/k
 COPY knime_preferences.epf .
 COPY classification-QSAR-bioKom.knwf .
 COPY run_workflow.sh .
+RUN dos2unix run_workflow.sh
 
 CMD ["/bin/bash"]
