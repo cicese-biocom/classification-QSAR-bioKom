@@ -40,6 +40,9 @@ The major dependencies used in the workflow are as follows:
 	KNIME Statistics Nodes (Labs)</br>
 	KNIME Machine Learning Interpretability Extension</br>
 	KNIME Integrated Deployment</br>
+	KNIME H2O Machine Learning Integration</br>
+	KNIME Optimization extension</br>
+	KNIME Data Generation</br>
 
 The Python libraries used in the workflow are specified in `environment.yml`.
 
