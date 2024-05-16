@@ -6,7 +6,7 @@
 
 # KNIME workflow to build classification models for QSAR studies
 
-![classification-QSAR-bioKom_workflow](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/136017848/a90dcaff-d1ee-4d66-88db-be5742c5fce6)
+![classification-QSAR-bioKom Workflow_v2](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/136017848/60606c02-f1a4-4e6b-8722-375ec2eb53d5)
 
 ## **Workflow installation**
 Clone the repository using Git:
