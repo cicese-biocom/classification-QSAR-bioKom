@@ -17,9 +17,9 @@ The directory structure of the workflow is as follows:
 ```
 classification-QSAR-bioKom
 ├── classification-QSAR-bioKom.knwf     <- KNIME workflow.
-├── environment.yml                     <- Python libraries requiered by the workflow.
-├── Dockerfile                          <- Docker image with all the dependencies requiered by the workflow. 
-├── docker-compose.yml                  <- Configuration of the Docker container requiered by the workflow. 
+├── environment.yml                     <- Python libraries required by the workflow.
+├── Dockerfile                          <- Docker image with all the dependencies required by the workflow. 
+├── docker-compose.yml                  <- Configuration of the Docker container required by the workflow. 
 ├── knime_preferences.epf               <- Configuration of the extensions required by the workflow. 
 ├── run_workflow.sh                     <- Example to execute the workflow. 
 ├── README.md                           <- README to use the workflow. 
@@ -35,6 +35,7 @@ The major dependencies used in the workflow are as follows:
 > - [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) to manage Python environments.
 > - [KNIME Analytics Platform](https://www.knime.com/) with the following extensions: </br>
 	Weka 3.7</br>
+	KNIME Python 2 Integration (legacy)</br>
 	KNIME Python Integration</br>
 	KNIME Parallel Chunk Loop Nodes</br>
 	KNIME Statistics Nodes (Labs)</br>
@@ -43,7 +44,8 @@ The major dependencies used in the workflow are as follows:
 	KNIME H2O Machine Learning Integration</br>
 	KNIME Optimization extension</br>
 	KNIME Data Generation</br>
-
+	KNIME XGBoost Integration</br>
+	
 The Python libraries used in the workflow are specified in `environment.yml`.
 
 ### **KNIME Python Integration extension configuration**
