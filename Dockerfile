@@ -16,7 +16,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa && \
     rm -rf /var/lib/apt/lists/*
 ENV PYTHON_HOME /usr/bin/python3.9
 ENV PATH $PYTHON_HOME/bin:$PATH
-	
+
 # Additional tools and packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \

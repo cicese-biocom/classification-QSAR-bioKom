@@ -4,7 +4,7 @@
 [![Java Version](https://img.shields.io/badge/Java->=1.8_u351-orange)](https://www.oracle.com/java/technologies/javase/8u351-relnotes.html)
 [![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://www.docker.com/)
 
-# KNIME workflow to build classification models for QSAR studies
+# KNIME workflow to build classification models
 
 ![classification-QSAR-bioKom Workflow_v2](https://github.com/cicese-biocom/classification-QSAR-bioKom/assets/136017848/60606c02-f1a4-4e6b-8722-375ec2eb53d5)
 
@@ -28,7 +28,7 @@ classification-QSAR-bioKom
 ### **Dependencies**
 The major dependencies used in the workflow are as follows:
 
-> - Java 1.8 u351 (or later). </br>
+> - Java 8 u351 (or later). We used to run this workflow on a local machine Java 8. However, the Docker image is built using Java 11.</br>
 > - C++ Compiler: </br>
 	Microsoft C++ Build Tools 14.34 (or later) for Windows, see details [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/).</br>
 	GNU GCC compiler for Linux, see details [here](https://gcc.gnu.org/).	
