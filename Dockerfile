@@ -53,11 +53,11 @@ RUN export CONDA_DEFAULT_ENV=KNIME && \
     export PATH=/opt/conda/envs/KNIME/bin:$PATH
 
 # KNIME
-ADD http://download.knime.org/analytics-platform/linux/knime_5.3.1.linux.gtk.x86_64.tar.gz .
-RUN tar -xvf knime_5.3.1.linux.gtk.x86_64.tar.gz
-RUN chmod +x /opt/knime_5.3.1/knime
-RUN ln -s /opt/knime_5.3.1/knime /usr/local/bin/knime
-RUN rm knime_5.3.1.linux.gtk.x86_64.tar.gz
+ADD http://download.knime.org/analytics-platform/linux/knime_5.3.0.linux.gtk.x86_64.tar.gz .
+RUN tar -xvf knime_5.3.0.linux.gtk.x86_64.tar.gz
+RUN chmod +x /opt/knime_5.3.0/knime
+RUN ln -s /opt/knime_5.3.0/knime /usr/local/bin/knime
+RUN rm knime_5.3.0.linux.gtk.x86_64.tar.gz
 
 # KNIME extensions
 RUN knime -application org.eclipse.equinox.p2.director \
@@ -66,11 +66,11 @@ RUN knime -application org.eclipse.equinox.p2.director \
 	 -r https://update.knime.com/analytics-platform/5.3/ \
 	 -i org.knime.features.ext.weka_3.7.feature.group,org.knime.features.python2.feature.group,org.knime.features.python3.scripting.feature.group,org.knime.features.virtual.feature.group,org.knime.features.stats.feature.group,org.knime.features.stats2.feature.group,org.knime.features.mli.feature.group,org.knime.features.buildworkflows.feature.group,org.knime.features.ext.h2o.feature.group,org.knime.features.optimization.feature.group,org.knime.features.datageneration.feature.group,org.knime.features.xgboost.feature.group
 
-RUN grep -qxF '-Dknime.python.connecttimeout=1728000000' /opt/knime_5.3.1/knime.ini || echo '-Dknime.python.connecttimeout=1728000000' >> /opt/knime_5.3.1/knime.ini
-RUN grep -qxF '-Xmx180g' /opt/knime_5.3.1/knime.ini || echo '-Xmx180g' >> /opt/knime_5.3.1/knime.ini
-RUN grep -qxF '-Dorg.eclipse.swt.browser.IEVersion=11001' /opt/knime_5.3.1/knime.ini || echo '-Dorg.eclipse.swt.browser.IEVersion=11001' >> /opt/knime_5.3.1/knime.ini
-RUN grep -qxF '-Dsun.awt.noerasebackground=true' /opt/knime_5.3.1/knime.ini || echo '-Dsun.awt.noerasebackground=true' >> /opt/knime_5.3.1/knime.ini
-RUN grep -qxF '-Dequinox.statechange.timeout=30000' /opt/knime_5.3.1/knime.ini || echo '-Dequinox.statechange.timeout=30000' >> /opt/knime_5.3.1/knime.ini
+RUN grep -qxF '-Dknime.python.connecttimeout=1728000000' /opt/knime_5.3.0/knime.ini || echo '-Dknime.python.connecttimeout=1728000000' >> /opt/knime_5.3.0/knime.ini
+RUN grep -qxF '-Xmx180g' /opt/knime_5.3.0/knime.ini || echo '-Xmx180g' >> /opt/knime_5.3.0/knime.ini
+RUN grep -qxF '-Dorg.eclipse.swt.browser.IEVersion=11001' /opt/knime_5.3.0/knime.ini || echo '-Dorg.eclipse.swt.browser.IEVersion=11001' >> /opt/knime_5.3.0/knime.ini
+RUN grep -qxF '-Dsun.awt.noerasebackground=true' /opt/knime_5.3.0/knime.ini || echo '-Dsun.awt.noerasebackground=true' >> /opt/knime_5.3.0/knime.ini
+RUN grep -qxF '-Dequinox.statechange.timeout=30000' /opt/knime_5.3.0/knime.ini || echo '-Dequinox.statechange.timeout=30000' >> /opt/knime_5.3.0/knime.ini
 
 COPY knime_preferences.epf .
 COPY classification-QSAR-bioKom.knwf .
