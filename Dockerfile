@@ -30,6 +30,7 @@ RUN apt-get update && \
     python3-pip \
     libxdamage1 \
     libgbm1 \
+    libgomp1 \    
     libxkbcommon0 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
